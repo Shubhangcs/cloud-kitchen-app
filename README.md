@@ -1,16 +1,19 @@
 # cloud_kitchen
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div>
+  <center>
+<img src="https://github.com/Shubhangcs/cloud-kitchen-app/blob/master/refs/Screenshot%20from%202024-01-27%2012-20-37.png" height="500">
+<img src="https://github.com/Shubhangcs/cloud-kitchen-app/blob/master/refs/Screenshot%20from%202024-01-27%2012-20-50.png" height="500">
+<img src="https://github.com/Shubhangcs/cloud-kitchen-app/blob/master/refs/Screenshot%20from%202024-01-27%2012-21-17.png" height="500">
+  </center>
+</div>
+<h1> Introducing Cloud Kitchen </h1>
+- An online restaurant management application designed in an advanced manner helping our clints to manage orders and keep track of the orders as well as tracking of profit and loss.
+<br>
+- The project is being developed using Flutter and Nodejs with SQL database.
+<br>
+- Developed by
+<br>
+- https://github.com/vrushab2004
+<br>
+- https://github.com/ShubhangCS
