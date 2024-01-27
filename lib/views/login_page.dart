@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cloud_kitchen/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -33,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Center(
                     child: Image.asset(
-                      'assets/logo1.png',
+                      'assets/logo.png',
                       width: 300,
                       fit: BoxFit.cover,
                     ),
@@ -49,39 +51,16 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 20, right: 20),
-                    height: 60,
-                    child: CupertinoTextField(
-                      placeholder: 'Email',
-                      style: GoogleFonts.varelaRound(fontSize: 18),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                      ),
-                      showCursor: true,
-                      cursorColor: Colors.brown,
-                      prefix: Container(margin:const EdgeInsets.only(left: 10),child:const Icon(Icons.mail,color: Colors.brown,),),
-                    ),
+                  const CustomTextField(
+                    placeholder: "Email",
+                    icon: Icons.mail,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 20, right: 20),
-                    height: 60,
-                    child: CupertinoTextField(
-                      obscureText: true,
-                      placeholder: 'Password',
-                      style: GoogleFonts.varelaRound(fontSize: 18),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                      ),
-                      showCursor: true,
-                      cursorColor: Colors.brown,
-                      prefix: Container(margin:const EdgeInsets.only(left: 10),child:const Icon(Icons.key,color: Colors.brown,)),
-                    ),
+                  const CustomTextField(
+                    placeholder: "Password",
+                    icon: Icons.key,
                   ),
                   const SizedBox(
                     height: 6,
@@ -134,7 +113,14 @@ class _LoginPageState extends State<LoginPage> {
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterPage(),
+                  ),
+                );
+              },
               style: ButtonStyle(
                 surfaceTintColor:
                     const MaterialStatePropertyAll(Colors.transparent),

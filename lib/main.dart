@@ -1,5 +1,4 @@
 import 'package:cloud_kitchen/views/landing.dart';
-import 'package:cloud_kitchen/views/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

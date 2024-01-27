@@ -13,9 +13,9 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   final List _imageAssets = [
+    "assets/scroll/food1.png",
     "assets/scroll/food2.png",
-    "assets/scroll/food3.png",
-    "assets/scroll/food6.png"
+    "assets/scroll/food3.png"
   ];
   bool end = false;
   int _currentPage = 0;
@@ -53,7 +53,7 @@ class _LandingPageState extends State<LandingPage> {
             height: 15,
           ),
           Center(
-            child: Image.asset('assets/logo1.png', width: 240),
+            child: Image.asset('assets/logo.png', width: 240),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
