@@ -44,89 +44,113 @@ class _HomePageState extends State<HomePage> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(
-            20,
-          ),
+          borderRadius:BorderRadius.only(topLeft: Radius.circular(20) , topRight: Radius.circular(20),),
           color: Colors.white,
         ),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 25,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width - 60,
-                  height: 50,
-                  child: const CustomTextField(
-                    placeholder: 'Search...',
-                    icon: Icons.search,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 60,
+                    height: 50,
+                    child: const CustomTextField(
+                      placeholder: 'Search...',
+                      icon: Icons.search,
+                    ),
+                  ),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.brown),
+                    child: Icon(
+                      Icons.filter_alt_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 220,
+                child: PageView(
+                  children: const [
+                    CustomOfferCard(),
+                    CustomOfferCard(),
+                    CustomOfferCard(),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 160,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomCircleElement(),
+                        CustomCircleElement(),
+                        CustomCircleElement(),
+                        CustomCircleElement(),
+                        CustomCircleElement()
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomCircleElement(),
+                        CustomCircleElement(),
+                        CustomCircleElement(),
+                        CustomCircleElement(),
+                        CustomCircleElement()
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Column(
+                children: [
+                  Container(
+                  margin:const EdgeInsets.only(left: 10 , right: 10,top: 10),
+                  width: MediaQuery.of(context).size.width,
+                  height: 120,
+                  child: Card(
+                    elevation: 5,
+                    surfaceTintColor: Colors.transparent,
+                    child: 
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(onPressed: (){}, icon:Icon(Icons.arrow_circle_right_outlined), iconSize: 40,color: Colors.amber,),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.brown),
-                  child: Icon(
-                    Icons.filter_alt_rounded,
-                    color: Colors.white,
+                  margin:const EdgeInsets.only(left: 10 , right: 10,top: 10),
+                  width: MediaQuery.of(context).size.width,
+                  height: 120,
+                  child: Card(
+                    elevation: 5,
+                    surfaceTintColor: Colors.transparent,
                   ),
                 ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 220,
-              child: PageView(
-                children: const [
-                  CustomOfferCard(),
-                  CustomOfferCard(),
-                  CustomOfferCard(),
                 ],
               ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 160,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                ),
-              ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CustomCircleElement(),
-                      CustomCircleElement(),
-                      CustomCircleElement(),
-                      CustomCircleElement(),
-                      CustomCircleElement()
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CustomCircleElement(),
-                      CustomCircleElement(),
-                      CustomCircleElement(),
-                      CustomCircleElement(),
-                      CustomCircleElement()
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
