@@ -1,115 +1,133 @@
+import "package:cloud_kitchen/views/widgets/custom_circle_elements.dart";
+import "package:cloud_kitchen/views/widgets/custom_offer_card.dart";
 import "package:cloud_kitchen/views/widgets/custom_text_field.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:google_fonts/google_fonts.dart";
 
-
-class myhome extends StatefulWidget {
-  const myhome({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<myhome> createState() => _myhomeState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _myhomeState extends State<myhome> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amber.shade400,
       appBar: AppBar(
-        title: Text('Home'),
-        actions: [CircleAvatar(child: Image.asset('assets/logo.png'),)],
-
+        backgroundColor: Colors.amber.shade400,
+        elevation: 0,
+        title: Text(
+          'Home',
+          style: GoogleFonts.stylish(
+            color: Colors.white,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.person,
+            color: Colors.white,
+            size: 40,
+          ),
+        ),
       ),
-
-      body:Column(
-        children: [
-          SizedBox(height: 30,),
-          Row(children: [Container(width: MediaQuery.of(context).size.width,decoration:BoxDecoration(boxShadow: [BoxShadow(offset:Offset(4, 4),blurRadius:10 , spreadRadius: 1,color:Colors.grey.shade200),BoxShadow(offset:Offset(-4, -4),blurRadius: 10 , spreadRadius: 1 , color: Colors.grey.shade300 )]),child: CustomTextField(placeholder: 'search food/juice', icon:Icons.search))],),
-          SizedBox(height: 20,),
-          Container(margin: EdgeInsets.only(left: 10,right: 10),width: MediaQuery.of(context).size.width,height:140,child: Card(
-
-          ),),
-          SizedBox(height: 20,),
-          Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        margin: const EdgeInsets.only(
+          top: 10,
+        ),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(
+            20,
+          ),
+          color: Colors.white,
+        ),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 25,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: 
-                [
-                Column(
-                  children: [
-                    CircleAvatar(radius: 30,backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1311008414156423170/Kxu_7mQS_400x400.jpg')),
-                    SizedBox(height: 7,),
-                    Text('CAT'),
-                  ],
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 60,
+                  height: 50,
+                  child: const CustomTextField(
+                    placeholder: 'Search...',
+                    icon: Icons.search,
+                  ),
                 ),
-                Column(
-                  children: [
-                    CircleAvatar(radius: 30,backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1311008414156423170/Kxu_7mQS_400x400.jpg')),
-                    SizedBox(height: 7,),
-                    Text('CAT'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    CircleAvatar(radius: 30,backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1311008414156423170/Kxu_7mQS_400x400.jpg')),
-                    SizedBox(height: 7,),
-                    Text('CAT'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    CircleAvatar(radius: 30,backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1311008414156423170/Kxu_7mQS_400x400.jpg')),
-                    SizedBox(height: 7,),
-                    Text('CAT'),
-                  ],
-                )],
-                ),
-                SizedBox(height: 30,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: 
-                [
-                Column(
-                  children: [
-                    CircleAvatar(radius: 30,backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1311008414156423170/Kxu_7mQS_400x400.jpg')),
-                    SizedBox(height: 7,),
-                    Text('CAT'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    CircleAvatar(radius: 30,backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1311008414156423170/Kxu_7mQS_400x400.jpg')),
-                    SizedBox(height: 7,),
-                    Text('CAT'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    CircleAvatar(radius: 30,backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1311008414156423170/Kxu_7mQS_400x400.jpg')),
-                    SizedBox(height: 7,),
-                    Text('CAT'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    CircleAvatar(radius: 30,backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1311008414156423170/Kxu_7mQS_400x400.jpg')),
-                    SizedBox(height: 7,),
-                    Text('CAT'),
-                  ],
-                )],
-                ),
-                SizedBox(height: 30,),
                 Container(
-                  child: Text('HOTELS'),
-                )
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.brown),
+                  child: Icon(
+                    Icons.filter_alt_rounded,
+                    color: Colors.white,
+                  ),
+                ),
               ],
             ),
-          )
-
-
-        ],
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 220,
+              child: PageView(
+                children: const [
+                  CustomOfferCard(),
+                  CustomOfferCard(),
+                  CustomOfferCard(),
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 160,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                ),
+              ),
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CustomCircleElement(),
+                      CustomCircleElement(),
+                      CustomCircleElement(),
+                      CustomCircleElement(),
+                      CustomCircleElement()
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CustomCircleElement(),
+                      CustomCircleElement(),
+                      CustomCircleElement(),
+                      CustomCircleElement(),
+                      CustomCircleElement()
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -19,7 +19,7 @@ class CustomTextField extends StatelessWidget {
         style: GoogleFonts.varelaRound(fontSize: 18),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
+          color: Colors.grey.shade100,
         ),
         showCursor: true,
         cursorColor: Colors.brown,
