@@ -1,6 +1,7 @@
 import 'package:cloud_kitchen/views/home_page.dart';
 import 'package:cloud_kitchen/views/landing.dart';
 import 'package:cloud_kitchen/views/widgets/custom_hotel_card.dart';
+import 'package:cloud_kitchen/views/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: hotel_card(),
+      home: menu_card(),
     );
   }
 }
