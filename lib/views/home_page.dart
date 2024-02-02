@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        IconButton(onPressed: (){}, icon:Icon(Icons.arrow_circle_right_outlined), iconSize: 40,color: Colors.amber,),
+                        IconButton(onPressed: (){}, icon:Icon(Icons.arrow_circle_right_outlined), iconSize: 40,color: Colors.brown,),
                       ],
                     ),
                   ),
@@ -145,6 +145,17 @@ class _HomePageState extends State<HomePage> {
                   child: Card(
                     elevation: 5,
                     surfaceTintColor: Colors.transparent,
+                    child:Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_circle_right_outlined),iconSize: 40,color: Colors.brown,),
+                        ListTile(
+                          leading: Container(child: Image.asset('assets/vectors/fc1.png',width: 30,)),
+                        ),
+                      ],
+                      
+                    ),
+                    
                   ),
                 ),
                 ],
