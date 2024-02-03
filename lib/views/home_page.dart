@@ -1,6 +1,7 @@
 import "package:cloud_kitchen/views/widgets/custom_circle_elements.dart";
 import "package:cloud_kitchen/views/widgets/custom_offer_card.dart";
 import "package:cloud_kitchen/views/widgets/custom_text_field.dart";
+import "package:cloud_kitchen/views/widgets/menu_card.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
@@ -120,46 +121,8 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Column(
-                children: [
-                  Container(
-                  margin:const EdgeInsets.only(left: 10 , right: 10,top: 10),
-                  width: MediaQuery.of(context).size.width,
-                  height: 120,
-                  child: Card(
-                    elevation: 5,
-                    surfaceTintColor: Colors.transparent,
-                    child: 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(onPressed: (){}, icon:Icon(Icons.arrow_circle_right_outlined), iconSize: 40,color: Colors.brown,),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  margin:const EdgeInsets.only(left: 10 , right: 10,top: 10),
-                  width: MediaQuery.of(context).size.width,
-                  height: 120,
-                  child: Card(
-                    elevation: 5,
-                    surfaceTintColor: Colors.transparent,
-                    child:Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_circle_right_outlined),iconSize: 40,color: Colors.brown,),
-                        ListTile(
-                          leading: Container(child: Image.asset('assets/vectors/fc1.png',width: 30,)),
-                        ),
-                      ],
-                      
-                    ),
-                    
-                  ),
-                ),
-                ],
-              ),
+              const SizedBox(height: 10,),
+              const FoodCard(),
             ],
           ),
         ),

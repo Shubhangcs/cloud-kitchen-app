@@ -1,109 +1,120 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class menu_card extends StatelessWidget {
-  const menu_card({super.key});
+class FoodCard extends StatelessWidget {
+  const FoodCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        margin: EdgeInsets.only(left: 10,right: 10,top: 20,bottom: 20),
-        // color: Colors.amber,
-        child: Stack(
-          alignment: Alignment.bottomCenter,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width - 10,
+      height: 120,
+      child: Card(
+        surfaceTintColor: Colors.white,
+        elevation: 10,
+        child: Row(
           children: [
-            Card(
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)
-                
-              ),
-              color: Colors.amber,
-              child: Container(
-                height: 100,
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-
-                    Container(
-                      margin: EdgeInsets.only(left: 5,top: 10,bottom: 10),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage('assets/logo.png'),
-                        radius: 40,
-                        
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(left: 10),
-                          width: 180,
-                          child: Text(
-                            'Food Name',maxLines: 1,overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.varelaRound(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 10,top: 4),
-                          width: 180,
-                          child: Text(
-                            'Veg or Non-veg',
-                            style: GoogleFonts.varelaRound(
-                                color: Colors.blueGrey, fontSize: 15),
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(right: 10,top: 10),
-                          width: 60,
-                          child: Center(
-                            child: Text(
-                              'Price',
-                              style: GoogleFonts.varelaRound(
-                                  color: Colors.blueGrey, fontSize: 15),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(right: 10,top: 10),
-                          height: 40,
-                          width: 70,
-                          // color: Colors.green,
-                          child: ElevatedButton(onPressed: (){}, 
-                          child:Icon(Icons.add_shopping_cart_rounded,color: Colors.green,)
-                          ),
-                          // child:Card(
-                          //   shape: RoundedRectangleBorder(
-                          //     borderRadius: BorderRadius.circular(5)
-                          //   ),
-                          //   color: Colors.green,
-                          //   child: Text('Add',
-                          //   style: GoogleFonts.varelaRound(
-                          //         color: Colors.white, fontSize: 15),
-                          //   ),
-                          // ) ,
-                          
-                          
-                        ),
-                      ],
-                    )
-                  ],
+            Container(
+              margin: const EdgeInsets.only(left: 5, right: 10),
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: const DecorationImage(
+                  image: NetworkImage(
+                      'https://static.toiimg.com/thumb/54289752.cms?imgsize=495844&width=800&height=800'),
                 ),
               ),
-            )
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width - 196,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'Masala Dosa',
+                    style: GoogleFonts.varelaRound(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Type: Veg',
+                    style: GoogleFonts.varelaRound(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 1,
+                  ),
+                  Text(
+                    'Hotel Sagar Grands',
+                    style: GoogleFonts.varelaRound(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    width: 40,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(
+                        5,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.star,
+                          size: 12,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          '4.2',
+                          style: GoogleFonts.varelaRound(
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+              height: 30,
+              width: 48,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.amber,
+              ),
+              child: Center(
+                child: Text(
+                  'Add',
+                  style: GoogleFonts.varelaRound(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
           ],
         ),
       ),

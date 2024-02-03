@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class hotel_card extends StatelessWidget {
-  const hotel_card({super.key});
+class HotelCard extends StatelessWidget {
+  const HotelCard({super.key});
 
   @override
   Widget build(BuildContext context) {

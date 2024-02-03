@@ -1,3 +1,4 @@
+import 'package:cloud_kitchen/views/home_page.dart';
 import 'package:cloud_kitchen/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -84,7 +85,9 @@ class _LoginPageState extends State<LoginPage> {
               height: 30,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomePage(),),);
+              },
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStatePropertyAll(Colors.amber.shade400),
