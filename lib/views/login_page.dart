@@ -55,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                   const CustomTextField(
                     placeholder: "Email",
                     icon: Icons.mail,
+                    isObscure: false,
                   ),
                   const SizedBox(
                     height: 20,
@@ -62,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                   const CustomTextField(
                     placeholder: "Password",
                     icon: Icons.key,
+                    isObscure: true,
                   ),
                   const SizedBox(
                     height: 6,

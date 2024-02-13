@@ -5,8 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomTextField extends StatelessWidget {
   final String placeholder;
   final IconData icon;
-  final IconData ? suffixIcon;
-  const CustomTextField({super.key , required this.placeholder , required this.icon , this.suffixIcon});
+  final IconData? suffixIcon;
+  final bool isObscure;
+  const CustomTextField(
+      {super.key,
+      required this.placeholder,
+      required this.icon,
+      this.suffixIcon , required this.isObscure});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class CustomTextField extends StatelessWidget {
       margin: const EdgeInsets.only(left: 20, right: 20),
       height: 60,
       child: CupertinoTextField(
-        obscureText: true,
+        obscureText: isObscure,
         placeholder: placeholder,
         style: GoogleFonts.varelaRound(fontSize: 18),
         decoration: BoxDecoration(
@@ -22,12 +27,12 @@ class CustomTextField extends StatelessWidget {
           color: Colors.grey.shade100,
         ),
         showCursor: true,
-        cursorColor: Colors.brown,
+        cursorColor: Colors.grey,
         prefix: Container(
           margin: const EdgeInsets.only(left: 10),
           child: Icon(
             icon,
-            color: Colors.brown,
+            color: Colors.grey,
           ),
         ),
       ),

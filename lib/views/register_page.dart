@@ -60,6 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const CustomTextField(
                     placeholder: "Username",
                     icon: Icons.person,
+                    isObscure: false,
                   ),
                   const SizedBox(
                     height: 20,
@@ -67,6 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const CustomTextField(
                     placeholder: "Email",
                     icon: Icons.mail,
+                    isObscure: false,
                   ),
                   const SizedBox(
                     height: 20,
@@ -74,6 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const CustomTextField(
                     placeholder: "Password",
                     icon: Icons.key,
+                    isObscure: true,
                   ),
                   const SizedBox(
                     height: 20,
