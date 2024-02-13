@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
 
-
 class CustomOfferCard extends StatelessWidget {
-  const CustomOfferCard({super.key});
+  final String image;
+  const CustomOfferCard({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {
-    return  Card(
-      margin: EdgeInsets.only(left: 10 , right: 10 , top: 10 , bottom: 30),
-        surfaceTintColor: Colors.transparent,
-        elevation: 10,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10,),),
-        child: Center(child: Image.asset('assets/logo.png',fit: BoxFit.cover,),),
+    return Card(
+      margin: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+        top: 10,
+        bottom: 30,
+      ),
+      surfaceTintColor: Colors.transparent,
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          10,
+        ),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.network(
+          image,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

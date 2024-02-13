@@ -44,8 +44,11 @@ class _HomePageState extends State<HomePage> {
         ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          borderRadius:BorderRadius.only(topLeft: Radius.circular(20) , topRight: Radius.circular(20),),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
           color: Colors.white,
         ),
         child: SingleChildScrollView(
@@ -69,9 +72,10 @@ class _HomePageState extends State<HomePage> {
                     width: 48,
                     height: 48,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.brown),
-                    child: Icon(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey,
+                    ),
+                    child: const Icon(
                       Icons.filter_alt_rounded,
                       color: Colors.white,
                     ),
@@ -86,9 +90,18 @@ class _HomePageState extends State<HomePage> {
                 height: 220,
                 child: PageView(
                   children: const [
-                    CustomOfferCard(),
-                    CustomOfferCard(),
-                    CustomOfferCard(),
+                    CustomOfferCard(
+                      image:
+                          'https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Food-Offer-Banner-Design-Template.jpg',
+                    ),
+                    CustomOfferCard(
+                      image:
+                          'https://lapinozpizza.in/assets/wla_new/lapinoz/img/deals-banner-four.jpg',
+                    ),
+                    CustomOfferCard(
+                      image:
+                          'https://marketplace.canva.com/EAFyabjgBBI/1/0/1600w/canva-brown-and-orange-vintage-modern-americana-restaurant-and-food-banner-aGzWcJUrrHs.jpg',
+                    ),
                   ],
                 ),
               ),
@@ -101,28 +114,53 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        CustomCircleElement(),
-                        CustomCircleElement(),
-                        CustomCircleElement(),
-                        CustomCircleElement(),
-                        CustomCircleElement()
+                        CustomCircleElement(
+                          image: 'assets/vectors/burger.png',
+                          foodName: 'Fast Food',
+                        ),
+                        CustomCircleElement(
+                          image: 'assets/vectors/donut.png',
+                          foodName: 'Cruller',
+                        ),
+                        CustomCircleElement(
+                          image: 'assets/vectors/meals.png',
+                          foodName: 'Meal',
+                        ),
+                        CustomCircleElement(
+                          image: 'assets/vectors/pastery.png',
+                          foodName: 'Cake',
+                        ),
+                        CustomCircleElement(
+                          image: 'assets/vectors/desserts.png',
+                          foodName: 'Dessert',
+                        )
                       ],
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        CustomCircleElement(),
-                        CustomCircleElement(),
-                        CustomCircleElement(),
-                        CustomCircleElement(),
-                        CustomCircleElement()
+                        SizedBox(
+                          width: 27,
+                        ),
+                        CustomCircleElement(
+                          image: 'assets/vectors/shakes.jpg',
+                          foodName: 'Shakes',
+                        ),
+                        SizedBox(
+                          width: 27,
+                        ),
+                        CustomCircleElement(
+                          image: 'assets/vectors/soups.jpg',
+                          foodName: 'Soup',
+                        )
                       ],
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 10,),
-              const FoodCard(),
+              const SizedBox(
+                height: 10,
+              ),
+              
             ],
           ),
         ),

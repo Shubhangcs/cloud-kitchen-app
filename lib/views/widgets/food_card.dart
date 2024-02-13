@@ -2,7 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FoodCard extends StatelessWidget {
-  const FoodCard({super.key});
+  final String foodName;
+  final String image;
+  final String type;
+  final String hotelName;
+  final double rating;
+  const FoodCard({
+    super.key,
+    required this.foodName,
+    required this.image,
+    required this.type,
+    required this.hotelName,
+    required this.rating,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +32,11 @@ class FoodCard extends StatelessWidget {
               height: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                image: const DecorationImage(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
                   image: NetworkImage(
-                      'https://static.toiimg.com/thumb/54289752.cms?imgsize=495844&width=800&height=800'),
+                    image,
+                  ),
                 ),
               ),
             ),
@@ -40,7 +54,7 @@ class FoodCard extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    'Masala Dosa',
+                    foodName,
                     style: GoogleFonts.varelaRound(
                       color: Colors.black,
                       fontSize: 15,
@@ -51,7 +65,7 @@ class FoodCard extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Type: Veg',
+                    'Type: $type',
                     style: GoogleFonts.varelaRound(
                       color: Colors.grey,
                     ),
@@ -60,7 +74,7 @@ class FoodCard extends StatelessWidget {
                     height: 1,
                   ),
                   Text(
-                    'Hotel Sagar Grands',
+                    hotelName,
                     style: GoogleFonts.varelaRound(
                       color: Colors.grey,
                     ),
@@ -69,10 +83,16 @@ class FoodCard extends StatelessWidget {
                     height: 5,
                   ),
                   Container(
-                    width: 40,
+                    width: 45,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: rating >= 4
+                          ? Colors.green
+                          : rating >= 3
+                              ? Colors.amber
+                              : rating >= 2
+                                  ? Colors.orange
+                                  : Colors.red,
                       borderRadius: BorderRadius.circular(
                         5,
                       ),
@@ -87,11 +107,11 @@ class FoodCard extends StatelessWidget {
                           color: Colors.white,
                         ),
                         Text(
-                          '4.2',
+                          '$rating',
                           style: GoogleFonts.varelaRound(
-                            color: Colors.white,
-                            fontSize: 12,
-                          ),
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
