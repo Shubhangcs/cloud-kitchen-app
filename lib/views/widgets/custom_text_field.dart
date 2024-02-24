@@ -7,11 +7,14 @@ class CustomTextField extends StatelessWidget {
   final IconData icon;
   final IconData? suffixIcon;
   final bool isObscure;
+  final TextEditingController? controller;
   const CustomTextField(
       {super.key,
       required this.placeholder,
       required this.icon,
-      this.suffixIcon , required this.isObscure});
+      this.suffixIcon,
+      this.controller,
+      required this.isObscure});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,7 @@ class CustomTextField extends StatelessWidget {
       child: CupertinoTextField(
         obscureText: isObscure,
         placeholder: placeholder,
+        controller: controller,
         style: GoogleFonts.varelaRound(fontSize: 18),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),

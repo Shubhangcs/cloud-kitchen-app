@@ -5,19 +5,29 @@ import 'package:cloud_kitchen/views/widgets/custom_hotel_card.dart';
 import 'package:cloud_kitchen/views/widgets/food_card.dart';
 import 'package:flutter/material.dart';
 import 'views/login_page.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
+import 'package:hive/hive.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentsDirectory =
+      await path_provider.getApplicationDocumentsDirectory();
+  Hive.init(appDocumentsDirectory.path);
+  final box = await Hive.openBox('key');
+  runApp(MyApp(token: box.get('token')));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String token;
+  const MyApp({super.key , required this.token});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      // home: (token == null)?const LandingPage():(JwtDecoder.isExpired(token) == false)?const HomePage():const LoginPage(),
+      home: LandingPage(),
     );
   }
 }
