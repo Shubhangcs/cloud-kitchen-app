@@ -41,8 +41,7 @@ class _LoginPageState extends State<LoginPage> {
           ScaffoldMessage.showScaffoldMessanger(context, state.errorMessage);
         } else if (state is LoginSuccessState) {
           Navigator.pop(context);
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
+          Navigator.pushReplacementNamed(context, "/home");
         }
       },
       builder: (context, state) {
@@ -80,10 +79,12 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                       CustomTextField(
+                      Text((state is InvalidEmailFormatState)
+                          ? state.errorMessage
+                          : (state is InvalidPasswordFormatState)
+                              ? state.errorMessage
+                              : ""),
+                      CustomTextField(
                         placeholder: "Email",
                         icon: Icons.mail,
                         isObscure: false,
@@ -92,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(
                         height: 20,
                       ),
-                       CustomTextField(
+                      CustomTextField(
                         placeholder: "Password",
                         icon: Icons.key,
                         isObscure: true,
@@ -121,10 +122,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePage(),
+                    BlocProvider.of<AuthenticatonBloc>(context).add(
+                      LoginEvent(
+                        userEmailId: userEmailIdController.text,
+                        userPassword: userPasswordController.text,
                       ),
                     );
                   },
@@ -157,15 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => BlocProvider(
-                          create: (context) => AuthenticatonBloc(),
-                          child: const RegisterPage(),
-                        ),
-                      ),
-                    );
+                    Navigator.pushReplacementNamed(context, "/register");
                   },
                   style: ButtonStyle(
                     surfaceTintColor:

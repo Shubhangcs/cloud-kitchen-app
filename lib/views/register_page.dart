@@ -38,15 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ScaffoldMessage.showScaffoldMessanger(context, state.exception);
         } else if (state is RegisterSuccessState) {
           Navigator.pop(context);
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => BlocProvider(
-                create: (context) => AuthenticatonBloc(),
-                child: const LoginPage(),
-              ),
-            ),
-          );
+          Navigator.pushReplacementNamed(context, "/login");
         } else if (state is RegisterFailedState) {
           Navigator.pop(context);
           ScaffoldMessage.showScaffoldMessanger(context, state.errorMessage);
@@ -143,7 +135,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.pushReplacementNamed(context, "/login");
                       },
                       style: ButtonStyle(
                         backgroundColor:

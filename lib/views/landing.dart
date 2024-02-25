@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'login_page.dart';
 
 class LandingPage extends StatefulWidget {
@@ -77,12 +76,7 @@ class _LandingPageState extends State<LandingPage> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LoginPage(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, "/login");
             },
             style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(Colors.amber.shade400),

@@ -58,7 +58,7 @@ class AuthenticatonBloc extends Bloc<AuthenticatonEvent, AuthenticatonState> {
             "password": event.userPassword
           };
           final jsonResponse = await http.post(
-            Uri.parse(register),
+            Uri.parse(login),
             headers: {"Content-Type": "application/json"},
             body: jsonEncode(
               request,
@@ -66,9 +66,9 @@ class AuthenticatonBloc extends Bloc<AuthenticatonEvent, AuthenticatonState> {
           );
           final response = jsonDecode(jsonResponse.body);
           if (jsonResponse.statusCode < 400) {
-            final box = await Hive.openBox('Key');
+            final box = await Hive.openBox('authkey');
             emit(LoginSuccessState(message: response['message']));
-            box.put('token', response['token']);
+            box.put('tokens', response['token']);
             box.close();
           } else {
             emit(LoginFailedState(errorMessage: response['message']));
