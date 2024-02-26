@@ -1,4 +1,4 @@
-import 'package:cloud_kitchen/bloc/bloc/authenticaton_bloc.dart';
+import 'package:cloud_kitchen/bloc/authentication/authenticaton_bloc.dart';
 import 'package:cloud_kitchen/views/home_page.dart';
 import 'package:cloud_kitchen/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';

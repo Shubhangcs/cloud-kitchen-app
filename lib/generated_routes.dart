@@ -1,4 +1,6 @@
-import 'package:cloud_kitchen/bloc/bloc/authenticaton_bloc.dart';
+import 'package:cloud_kitchen/bloc/authentication/authenticaton_bloc.dart';
+import 'package:cloud_kitchen/bloc/home/home_bloc.dart';
+import 'package:cloud_kitchen/views/food_order_page.dart';
 import 'package:cloud_kitchen/views/home_page.dart';
 import 'package:cloud_kitchen/views/landing.dart';
 import 'package:cloud_kitchen/views/login_page.dart';
@@ -29,8 +31,17 @@ class Routes {
         );
       case "/home":
         return MaterialPageRoute(
-          builder: (context) =>const HomePage(),
+          builder: (context) => BlocProvider(
+            create: (context) => HomeBloc(),
+            child: const HomePage(),
+          ),
         );
+      case "/food":
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => HomeBloc(),
+                  child: const FoodOrderPage(),
+                ));
     }
   }
 }
