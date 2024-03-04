@@ -3,3 +3,4 @@ const register = '$url/register';
 const login = '$url/login';
 const hotels = '$url/hotels';
 const foodByHotels = '$url/foodhotels';
+const addToCart = '$url/addtocart';

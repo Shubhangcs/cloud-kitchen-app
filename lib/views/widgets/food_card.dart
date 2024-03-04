@@ -7,14 +7,26 @@ class FoodCard extends StatelessWidget {
   final String type;
   final String hotelName;
   final double rating;
-  const FoodCard({
-    super.key,
-    required this.foodName,
-    required this.image,
-    required this.type,
-    required this.hotelName,
-    required this.rating,
-  });
+  final String price;
+  final VoidCallback onPressed;
+  final VoidCallback decrement;
+  final VoidCallback increment;
+  bool isItemAdded = false;
+  final int count;
+  FoodCard(
+      {super.key,
+      required this.foodName,
+      required this.image,
+      required this.type,
+      required this.hotelName,
+      required this.rating,
+      required this.price,
+      required this.onPressed,
+      required this.isItemAdded,
+      required this.count,
+      required this.decrement,
+      required this.increment
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +53,7 @@ class FoodCard extends StatelessWidget {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width - 196,
+              width: MediaQuery.of(context).size.width - 193,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -61,17 +73,11 @@ class FoodCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
                   Text(
                     'Type: $type',
                     style: GoogleFonts.varelaRound(
                       color: Colors.grey,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 1,
                   ),
                   Text(
                     hotelName,
@@ -79,8 +85,12 @@ class FoodCard extends StatelessWidget {
                       color: Colors.grey,
                     ),
                   ),
+                  Text(
+                    price,
+                    style: GoogleFonts.varelaRound(color: Colors.grey),
+                  ),
                   const SizedBox(
-                    height: 5,
+                    height: 1,
                   ),
                   Container(
                     width: 45,
@@ -119,22 +129,89 @@ class FoodCard extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-              height: 30,
-              width: 48,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.amber,
-              ),
-              child: Center(
-                child: Text(
-                  'Add',
-                  style: GoogleFonts.varelaRound(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+            (isItemAdded)
+                ? Row(
+                    children: [
+                      GestureDetector(
+                        onTap: increment,
+                        child: Container(
+                          height: 30,
+                          width: 14,
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomLeft: Radius.circular(
+                                  10,
+                                ),
+                              ),
+                              color: Colors.amber),
+                          child: const Center(
+                            child: Text(
+                              '+',
+                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 30,
+                        width: 20,
+                        decoration: const BoxDecoration(
+                          color: Colors.amber,
+                        ),
+                        child: Center(
+                          child: Text(
+                            '$count',
+                            style: GoogleFonts.varelaRound(color: Colors.white , fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: decrement,
+                        child: Container(
+                          height: 30,
+                          width: 14,
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(
+                                  10,
+                                ),
+                                bottomRight: Radius.circular(
+                                  10,
+                                ),
+                              ),
+                              color: Colors.amber),
+                          child: Center(
+                            child: Text(
+                              '-',
+                              style:
+                                  GoogleFonts.varelaRound(color: Colors.white,fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : GestureDetector(
+                    onTap: onPressed,
+                    child: Container(
+                      margin:
+                          const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+                      height: 30,
+                      width: 48,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.amber,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Add',
+                          style: GoogleFonts.varelaRound(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
           ],
         ),
       ),

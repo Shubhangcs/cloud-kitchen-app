@@ -36,12 +36,6 @@ class Routes {
             child: const HomePage(),
           ),
         );
-      case "/food":
-        return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) => HomeBloc(),
-                  child: const FoodOrderPage(),
-                ));
     }
   }
 }
