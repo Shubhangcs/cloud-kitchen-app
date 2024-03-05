@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
       },
       builder: (context, state) {
         return Skeletonizer(
-          enabled: loading,
+          enabled: false,
           child: Scaffold(
             backgroundColor: Colors.amber.shade400,
             appBar: AppBar(
@@ -88,9 +88,7 @@ class _HomePageState extends State<HomePage> {
               ),
               surfaceTintColor: Colors.transparent,
               leading: IconButton(
-                onPressed: () {
-                  
-                },
+                onPressed: () {},
                 icon: const Icon(
                   Icons.person,
                   color: Colors.white,
@@ -256,51 +254,55 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       height: 10,
                     ),
-                    ListView.builder(
-                      itemBuilder: (condatatext, index) {
-                        return BlocBuilder<HomeBloc, HomeState>(
-                          builder: (context, state) {
-                            if (state is HomeInitialFetchState) {
-                              return Column(
-                                children: [
-                                  HotelCard(
-                                    image: state.data[index].image,
-                                    hotelName: state.data[index].name,
-                                    hotelLocation: state.data[index].adress,
-                                    rating: state.data[index].rating,
-                                    onOrderButtonClicked: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => BlocProvider(
-                                            create: (context) => FoodBloc(),
-                                            child: FoodOrderPage(
-                                                userid: userid,
-                                                hotelName:
-                                                    state.data[index].name,
-                                                constraints: "hotel",
-                                                parameter:
-                                                    state.data[index].id),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                  const SizedBox(
-                                    height: 60,
-                                  )
-                                ],
-                              );
-                            } else {
-                              return Container();
-                            }
-                          },
-                        );
+                    BlocListener<HomeBloc, HomeState>(
+                      listener: (context, state) {
                       },
-                      itemCount: 4,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      physics: const NeverScrollableScrollPhysics(),
+                      child: ListView.builder(
+                        itemBuilder: (condatatext, index) {
+                          return BlocBuilder<HomeBloc, HomeState>(
+                            builder: (context, state) {
+                              if (state is HomeInitialFetchState) {
+                                return Column(
+                                  children: [
+                                    HotelCard(
+                                      image: state.data[index].image,
+                                      hotelName: state.data[index].name,
+                                      hotelLocation: state.data[index].adress,
+                                      rating: state.data[index].rating,
+                                      onOrderButtonClicked: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => BlocProvider(
+                                              create: (context) => FoodBloc(),
+                                              child: FoodOrderPage(
+                                                  userid: userid,
+                                                  hotelName:
+                                                      state.data[index].name,
+                                                  constraints: "hotel",
+                                                  parameter:
+                                                      state.data[index].id),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    const SizedBox(
+                                      height: 60,
+                                    )
+                                  ],
+                                );
+                              } else {
+                                return Container();
+                              }
+                            },
+                          );
+                        },
+                        itemCount: (state is HomeInitialFetchState)?state.data.length:0,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        physics: const NeverScrollableScrollPhysics(),
+                      ),
                     ),
                   ],
                 ),

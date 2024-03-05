@@ -55,7 +55,6 @@ class FoodCard extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width - 193,
               decoration: BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(

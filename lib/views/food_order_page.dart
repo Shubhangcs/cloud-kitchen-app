@@ -96,6 +96,7 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
+                          const SizedBox(height: 5,),
                           FoodCard(
                             foodName: state.data[index].name,
                             image: state.data[index].foodImage,
