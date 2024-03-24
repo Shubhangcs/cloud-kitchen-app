@@ -11,5 +11,15 @@ final class FoodFetchEvent extends FoodEvent {
 final class FoodAddEvent extends FoodEvent {
   List<dynamic> data;
   int userid;
-  FoodAddEvent({required this.data , required this.userid});
+  FoodAddEvent({required this.data, required this.userid});
+}
+
+final class FoodFetchCartItems extends FoodEvent {
+  int userid;
+  FoodFetchCartItems({required this.userid});
+}
+
+final class FoodDeleteCartItemEvent extends FoodEvent {
+  int userid;
+  FoodDeleteCartItemEvent({required this.userid});
 }

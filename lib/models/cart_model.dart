@@ -7,7 +7,7 @@ class Cart {
   String foodname;
   String foodtype;
   String catogery;
-  double rating;
+  String rating;
   int foodprice;
   String image;
   String hotelname;
@@ -24,23 +24,22 @@ class Cart {
     required this.hotelname,
     required this.image,
     required this.orderid,
-    required this.rating,
+    required this.rating
   });
 
   factory Cart.fromJson(Map<String, dynamic> json) {
     return Cart(
-      totalprice: json['ORDER_PRICE'],
-      quantity: json['ORDER_QUANTITY'],
-      userid: json['USER_ID'],
-      foodid: json['FOOD_ID'],
-      orderid: json['ORDER_ID'],
-      foodname: json['FOOD_NAME'],
-      foodtype: json['FOOD_TYPE'],
-      catogery: json['FOOD_CATOGERY'],
-      rating: json['FOOD_RATING'],
-      foodprice: json['FOOD_PRICE'],
-      image: json['FOOD_IMAGE'],
-      hotelname: json['HOTEL_NAME']
-    );
+        totalprice: json['CART_PRICE'],
+        quantity: json['CART_QUANTITY'],
+        userid: json['USER_ID'],
+        foodid: json['FOOD_ID'],
+        orderid: json['CART_ID'],
+        foodname: json['FOOD_NAME'],
+        foodtype: json['FOOD_TYPE'],
+        catogery: json['FOOD_CATOGERY'],
+        rating: json['FOOD_RATING'].toString(),
+        foodprice: json['FOOD_PRICE'],
+        image: json['FOOD_IMAGE'],
+        hotelname: json['HOTEL_NAME']);
   }
 }

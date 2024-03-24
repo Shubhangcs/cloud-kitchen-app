@@ -101,7 +101,12 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CartPage(),
+                        builder: (context) => BlocProvider(
+                          create: (context) => FoodBloc(),
+                          child: CartPage(
+                            userid: userid,
+                          ),
+                        ),
                       ),
                     );
                   },
@@ -190,15 +195,13 @@ class _HomePageState extends State<HomePage> {
                                 image: 'assets/vectors/burger.png',
                                 foodName: 'Fast Food',
                                 onPressed: () {
-                                  //pending
+                                  
                                 },
                               ),
                               CustomCircleElement(
                                 image: 'assets/vectors/donut.png',
                                 foodName: 'Cruller',
                                 onPressed: () {
-                                  print(DateFormat('yyyy-MM-dd')
-                                      .format(DateTime.now()));
                                 },
                               ),
                               CustomCircleElement(
@@ -255,8 +258,7 @@ class _HomePageState extends State<HomePage> {
                       height: 10,
                     ),
                     BlocListener<HomeBloc, HomeState>(
-                      listener: (context, state) {
-                      },
+                      listener: (context, state) {},
                       child: ListView.builder(
                         itemBuilder: (condatatext, index) {
                           return BlocBuilder<HomeBloc, HomeState>(
@@ -298,7 +300,9 @@ class _HomePageState extends State<HomePage> {
                             },
                           );
                         },
-                        itemCount: (state is HomeInitialFetchState)?state.data.length:0,
+                        itemCount: (state is HomeInitialFetchState)
+                            ? state.data.length
+                            : 0,
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         physics: const NeverScrollableScrollPhysics(),

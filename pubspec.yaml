@@ -31,6 +31,10 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: any
+  intl: ^0.19.0
+  flutter_bloc: any
+  http: any
+  hive: any
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,13 +44,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_bloc: any
-  http: any
-  hive: any
   path_provider: any
   jwt_decoder: ^2.0.1
   skeletonizer: ^1.0.1
-  intl: ^0.19.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

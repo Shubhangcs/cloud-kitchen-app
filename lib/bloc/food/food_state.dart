@@ -16,7 +16,27 @@ final class FoodFetchSuccessState extends FoodState {
   FoodFetchSuccessState({required this.data});
 }
 
+final class FoodFetchErrorState extends FoodState {
+  String errorMessage;
+  FoodFetchErrorState({required this.errorMessage});
+}
+
 final class FoodAddedSuccessState extends FoodState {
   String message;
   FoodAddedSuccessState({required this.message});
+}
+
+final class FoodAddedErrorState extends FoodState {
+  String errorMessage;
+  FoodAddedErrorState({required this.errorMessage});
+}
+
+final class FoodCartFetchSuccessState extends FoodState {
+  final List<dynamic> data;
+  FoodCartFetchSuccessState({required this.data});
+}
+
+final class FoodCartFetchErrorState extends FoodState {
+  final String errorMessage;
+  FoodCartFetchErrorState({required this.errorMessage});
 }
